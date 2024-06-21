@@ -1,7 +1,11 @@
 package ir.alirahimi.dailypulse
 
-interface Platform {
-    val name: String
-}
+expect class Platform {
+    val osName: String
+    val osVersion: String
+    val deviceModel: String
+    val density: Int
 
-expect fun getPlatform(): Platform
+    fun logSystemInfo()
+
+}
