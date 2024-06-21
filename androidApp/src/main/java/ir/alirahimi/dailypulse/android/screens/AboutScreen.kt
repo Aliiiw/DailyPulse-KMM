@@ -4,8 +4,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -18,17 +22,26 @@ import ir.alirahimi.dailypulse.Platform
 import ir.alirahimi.dailypulse.android.MyApplicationTheme
 
 @Composable
-fun AboutScreen() {
+fun AboutScreen(
+    onBackClick: () -> Unit
+) {
     Column {
-        Toolbar()
+        Toolbar(onBackClick)
         ContentView()
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Toolbar() {
-    TopAppBar(title = { Text(text = "About Device") })
+fun Toolbar(onBackClick: () -> Unit) {
+    TopAppBar(
+        title = { Text(text = "About Device") },
+        navigationIcon = {
+            IconButton(onClick = onBackClick) {
+                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back Button")
+            }
+        }
+    )
 }
 
 @Composable
@@ -67,12 +80,4 @@ fun RowView(title: String, subtitle: String) {
         )
     }
     Divider()
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        AboutScreen()
-    }
 }
