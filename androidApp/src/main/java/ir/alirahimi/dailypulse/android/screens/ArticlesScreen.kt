@@ -27,9 +27,12 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import ir.alirahimi.dailypulse.articles.Article
 import ir.alirahimi.dailypulse.articles.ArticlesViewModel
+import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun ArticlesScreen(viewModel: ArticlesViewModel, onAboutClick: () -> Unit) {
+fun ArticlesScreen(
+    viewModel: ArticlesViewModel = getViewModel(), onAboutClick: () -> Unit
+) {
 
     val articlesState = viewModel.articlesState.collectAsState()
 
