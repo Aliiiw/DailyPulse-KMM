@@ -14,8 +14,8 @@ extension ArticlesScreen {
     
     @MainActor
     class ArticlesViewModelWrapper: ObservableObject {
-        let articlesViewModel: ArticlesViewModel
         
+        let articlesViewModel: ArticlesViewModel
         
         init() {
             articlesViewModel = ArticlesInjector().articlesViewModel
@@ -93,7 +93,7 @@ struct ArticleItemView: View {
             Text(article.title)
                 .font(.title)
                 .fontWeight(.bold)
-            Text(article.description_)
+            Text(article.desc)
             Text(article.date).frame(maxWidth: .infinity, alignment: .trailing).foregroundStyle(.gray)
         }
         .padding(16)
@@ -114,4 +114,3 @@ struct ErrorMessage: View {
             .font(.title)
     }
 }
-

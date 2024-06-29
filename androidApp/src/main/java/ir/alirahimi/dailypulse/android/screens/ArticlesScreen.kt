@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import ir.alirahimi.dailypulse.articles.Article
+import ir.alirahimi.dailypulse.articles.model.Article
 import ir.alirahimi.dailypulse.articles.ArticlesViewModel
 import org.koin.androidx.compose.getViewModel
 

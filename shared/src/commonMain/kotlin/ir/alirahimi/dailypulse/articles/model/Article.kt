@@ -1,4 +1,4 @@
-package ir.alirahimi.dailypulse.articles
+package ir.alirahimi.dailypulse.articles.model
 
 
 data class Article(

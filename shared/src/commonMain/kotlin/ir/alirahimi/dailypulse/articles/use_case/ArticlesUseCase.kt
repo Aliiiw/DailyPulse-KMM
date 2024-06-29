@@ -1,8 +1,8 @@
 package ir.alirahimi.dailypulse.articles.use_case
 
-import ir.alirahimi.dailypulse.articles.Article
+import ir.alirahimi.dailypulse.articles.model.Article
 import ir.alirahimi.dailypulse.articles.model.ArticleRaw
-import ir.alirahimi.dailypulse.articles.service.ArticlesService
+import ir.alirahimi.dailypulse.articles.repository.ArticlesRepository
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
@@ -11,11 +11,9 @@ import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.todayIn
 import kotlin.math.abs
 
-class ArticlesUseCase(private val service: ArticlesService) {
+class ArticlesUseCase(private val repository: ArticlesRepository) {
     suspend fun getAllArticles(): List<Article> {
-
-        val articles = service.fetchArticles()
-
+        val articles = repository.getAllArticles()
         return mapArticles(articles)
     }
 
